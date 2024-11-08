@@ -1,0 +1,37 @@
+<! DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=++, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Hello</div>
+    <button onclick="sayHello()">Say hello</button>
+    <button onclick="printName ()">PRINT NAME</button>
+    <button onclick="deleteName ()">DELETE NAME</button>
+    <button onclick="getName()">GET NAME</button>
+    <div id="name-container" style="font-size: large; color: blue"></div>
+    <div id="yourname"></div>
+    <script>
+      function sayHello() {
+        alert("Hello, World!");
+      }
+      function getName() {
+        let urname = prompt();
+        document.getElementById("yourname").innerHTML = urname;
+      }
+      function printName() {
+        const nameContainerElement = document.getElementById("name-container");
+        nameContainerElement.innerText = "Steve";
+      }
+      function deleteName() {
+        let deleteName = "";
+        document.getElementById("yourname").innerHTML = deleteName;
+        const nameContainerElement = document.getElementById("name-container");
+      }
+
+      nameContainerElement.innerText = "";
+    </script>
+  </body>
+</html>
