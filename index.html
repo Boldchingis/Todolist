@@ -4,50 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <style>
-      .tasks {
-        border: 3px solid black;
-        padding: 10px;
-        width: 30%;
-        margin-right: auto;
-        margin-left: auto;
-        border-radius: 7px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 400;
-      }
-      .task {
-        padding: 5px;
-        border-bottom: 1px solid grey;
-      }
-    </style>
-    <button onclick="addTask()">Add Task</button>
-    <div id="tasks" class="tasks"></div>
-    <script>
-      const tasks = [
-        { name: "Shalaa ugaah", status: "todo" },
-        { name: "Aygaa ugaah", status: "todo" },
-        { name: "Huwtsasaa ugaah", status: "todo" },
-      ];
+    <main>
+      <div class="button1">
+        <button class="button" onclick="addTask()">Add Task</button>
+      </div>
 
-      function render() {
-        const output = document.getElementById("tasks");
-        output.innerHTML = "";
-        for (let i = 0; i < tasks.length; i++) {
-          output.innerHTML += '<div class="task">' + tasks[i].name + "</div>";
-        }
-      }
-
-      function addTask() {
-        const name = prompt("Enter a new task:");
-        if (name) {
-          tasks.push({ name: name, status: "todo" });
-          render();
-        }
-      }
-
-      render();
-    </script>
+      <div id="tasks" class="tasks"></div>
+      <script src="/index.js"></script>
+    </main>
   </body>
 </html>

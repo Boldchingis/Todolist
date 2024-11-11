@@ -1,0 +1,40 @@
+main {
+  background-color: black;
+  min-height: 844px;
+}
+.tasks {
+  background-color: #00a300;
+  color: white;
+  padding: 10px;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+.task {
+  padding: 5px;
+  border-bottom: 1px solid grey;
+  display: flex;
+}
+.button1 {
+  width: 100%;
+  background-color: aliceblue;
+}
+.button {
+  background-color: #00a300;
+  border-radius: 4px;
+  border: none;
+  color: black;
+  padding: 15px 26px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #00a300;
+  color: white;
+}

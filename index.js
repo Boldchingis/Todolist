@@ -1,9 +1,13 @@
-const todos = [];
+const STATUS = "TODO" || "DONE";
+
+let todos = [];
+
 // Todo add
 function addOne(newTodo) {
   todos.push(newTodo);
 }
-// Status urchluh : Func
+
+// Status uurchluh : Func
 function editStatus(index, status) {
   let item = todos[index];
   item.status = status;
@@ -13,21 +17,74 @@ function editStatus(index, status) {
 function editName(index, name) {
   let item = todos[index];
   item.name = name;
+  render();
 }
 
 // Todo delete one item
-
 function deleteOne(index) {
-  todos.splice(index, 1);
+  let arr = [];
+  for (let i = 0; i < todos.length; i++) {
+    if (i !== index) {
+      arr.push(todos[i]);
+    }
+  }
+  todos = arr;
+  render();
 }
 
-//RUNNING APPLICATION
+// Todo delete all
+function deleteAll() {
+  todos = [];
+  render();
+}
 
-addOne({ name: "JS sudlah", status: "TODO" });
-addOne({ name: "Hool hiih", status: "TODO" });
-addOne({ name: "math hiih", status: "TODO" });
-addOne({ name: "ayga ugaah", status: "TODO" });
-editStatus(1, "DONE");
-editName(1, "Nom unshih");
-deleteOne(1);
-console.log(todos);
+// Count DONE
+function countDone() {
+  let count = 0;
+  for (let i = 0; i < todos.length; i++) {
+    let item = todos[i];
+    if (item.status === "DONE") {
+      count++;
+    }
+  }
+  return count;
+}
+
+// RUNNING APPLICATION
+function render() {
+  const todoList = document.querySelector("#tasks");
+  todoList.innerHTML = "";
+
+  console.log(todoList);
+
+  for (let i = 0; i < todos.length; i++) {
+    const item = todos[i];
+
+    // Create TASK ITEM
+    const element = document.createElement("div");
+    element.classList.add("todo-item");
+
+    // Create task name
+    const titleEl = document.createElement("p");
+    titleEl.innerText = item.name;
+
+    // Create edit button
+    const btnEl = document.createElement("button");
+    btnEl.innerText = "Edit";
+    btnEl.onclick = function () {
+      const newName = prompt("Enter new name");
+      editName(i, newName);
+    };
+
+    // DELETE
+    element.appendChild(titleEl);
+    element.appendChild(btnEl);
+    todoList.appendChild(element);
+  }
+}
+
+function addTask() {
+  const input = prompt("Enter todo name");
+  addOne({ name: input, status: "TODO" });
+  render();
+}
