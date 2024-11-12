@@ -7,13 +7,13 @@ function addOne(newTodo) {
   todos.push(newTodo);
 }
 
-// Status uurchluh : Func
+// Status update: Func
 function editStatus(index, status) {
   let item = todos[index];
   item.status = status;
 }
 
-// Ner uurchluh : Func
+// Name update: Func
 function editName(index, name) {
   let item = todos[index];
   item.name = name;
@@ -53,36 +53,46 @@ function countDone() {
 // RUNNING APPLICATION
 function render() {
   const todoList = document.querySelector("#tasks");
-  todoList.innerHTML = "";
+  todoList.innerHTML = ""; // Clear current tasks
 
   console.log(todoList);
 
+  // Iterate over todos array to create task items
   for (let i = 0; i < todos.length; i++) {
     const item = todos[i];
 
-    // Create TASK ITEM
+    // Create task item container
     const element = document.createElement("div");
     element.classList.add("todo-item");
 
-    // Create task name
+    // Create task name element
     const titleEl = document.createElement("p");
     titleEl.innerText = item.name;
 
     // Create edit button
-    const btnEl = document.createElement("button");
-    btnEl.innerText = "Edit";
-    btnEl.onclick = function () {
+    const editBtnEl = document.createElement("i");
+    editBtnEl.classList.add("fa-solid", "fa-pen");
+    editBtnEl.onclick = function () {
       const newName = prompt("Enter new name");
       editName(i, newName);
     };
 
-    // DELETE
+    // Create delete button
+    const deleteBtnEl = document.createElement("i");
+    deleteBtnEl.classList.add("fa-trash", "fa-solid");
+    deleteBtnEl.onclick = function () {
+      deleteOne(i); // Remove todo at index `i`
+    };
+
+    // Append the title, edit, and delete buttons to the item element
     element.appendChild(titleEl);
-    element.appendChild(btnEl);
+    element.appendChild(editBtnEl);
     todoList.appendChild(element);
+    element.appendChild(deleteBtnEl);
   }
 }
 
+// Add new task
 function addTask() {
   const input = prompt("Enter todo name");
   addOne({ name: input, status: "TODO" });
