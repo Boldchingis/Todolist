@@ -11,13 +11,14 @@ function addOne(newTodo) {
 function editStatus(index, status) {
   let item = todos[index];
   item.status = status;
+  render(); // re-render after status change
 }
 
 // Name update: Func
 function editName(index, name) {
   let item = todos[index];
   item.name = name;
-  render();
+  render(); // re-render after name change
 }
 
 // Todo delete one item
@@ -29,13 +30,13 @@ function deleteOne(index) {
     }
   }
   todos = arr;
-  render();
+  render(); // re-render after delete
 }
 
 // Todo delete all
 function deleteAll() {
   todos = [];
-  render();
+  render(); // re-render after delete all
 }
 
 // Count DONE
@@ -54,8 +55,6 @@ function countDone() {
 function render() {
   const todoList = document.querySelector("#tasks");
   todoList.innerHTML = ""; // Clear current tasks
-
-  console.log(todoList);
 
   // Iterate over todos array to create task items
   for (let i = 0; i < todos.length; i++) {
@@ -81,14 +80,25 @@ function render() {
     const deleteBtnEl = document.createElement("i");
     deleteBtnEl.classList.add("fa-trash", "fa-solid");
     deleteBtnEl.onclick = function () {
-      deleteOne(i); // Remove todo at index `i`
+      deleteOne(i);
     };
 
-    // Append the title, edit, and delete buttons to the item element
+    // Checkbox to mark DONE/UNDO
+    const checkBtnEl = document.createElement("input");
+    checkBtnEl.type = "checkbox";
+    checkBtnEl.classList.add("todo-checkbox");
+    checkBtnEl.checked = item.status === "DONE";
+    checkBtnEl.onclick = function () {
+      const newStatus = checkBtnEl.checked ? "DONE" : "TODO";
+      editStatus(i, newStatus);
+    };
+
+    // append child
+    element.appendChild(checkBtnEl);
     element.appendChild(titleEl);
     element.appendChild(editBtnEl);
+    element.appendChild(deleteBtnEl); //
     todoList.appendChild(element);
-    element.appendChild(deleteBtnEl);
   }
 }
 
