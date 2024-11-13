@@ -53,7 +53,7 @@ function countDone() {
 
 // RUNNING APPLICATION
 function render() {
-  const todoList = document.querySelector("#tasks");
+  const todoList = document.querySelector("#todo-tasks");
   todoList.innerHTML = ""; // Clear current tasks
 
   // Iterate over todos array to create task items
@@ -63,7 +63,6 @@ function render() {
     // Create task item container
     const element = document.createElement("div");
     element.classList.add("todo-item");
-
     // Create task name element
     const titleEl = document.createElement("p");
     titleEl.innerText = item.name;
@@ -97,14 +96,24 @@ function render() {
     element.appendChild(checkBtnEl);
     element.appendChild(titleEl);
     element.appendChild(editBtnEl);
-    element.appendChild(deleteBtnEl); //
+    element.appendChild(deleteBtnEl);
     todoList.appendChild(element);
   }
 }
 
 // Add new task
 function addTask() {
-  const input = prompt("Enter todo name");
-  addOne({ name: input, status: "TODO" });
+  const modal = document.querySelector("#modal");
+  modal.style.display = "none";
+  // addOne({ name: input, status: "TODO" });
+  // render();
+}
+function saveTask() {
+  const inputValue = document.getElementById("task-name").value;
+  // const inputValue = document.getElementById("task-status").value;
+  todos.push({
+    name: inputValue,
+    status: "todo",
+  });
   render();
 }

@@ -1,11 +1,17 @@
+/* Global reset */
 * {
   margin: 0;
-  padding: 0%;
+  padding: 0; /* Fixed padding value */
 }
+
+/* Section styling */
 section {
-  background-color: black;
-  height: 62.5rem;
+  background-color: #1b1b1b;
+  min-height: 900px;
+  width: 100vw;
 }
+
+/* Task container styling */
 .tasks {
   background-color: #1a1a1a;
   color: #d9d9d9;
@@ -17,24 +23,29 @@ section {
   font-weight: 300;
   font-size: 12px;
 }
+
+/* Individual task styling */
 .task {
   padding: 5px;
   border-bottom: 1px solid grey;
   display: flex;
 }
 
+/* Navbar styling */
 .navbar {
   display: flex;
   width: 50%;
   justify-content: space-around;
 }
+
+/* Title styling */
 .todoTitle {
   font-weight: 700;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  margin-top: auto;
-  margin-bottom: auto;
 }
+
+/* Add button styling */
 .AddButton {
   font-size: 10px;
   background-color: #00a300;
@@ -51,11 +62,17 @@ section {
   cursor: pointer;
 }
 
+/* Add button hover effect */
 .AddButton:hover {
-  opacity: 0.8;
+  border-radius: 20px;
 }
 
+/* Todo item styling */
 .todo-item {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -66,10 +83,165 @@ section {
   border-radius: 5px;
 }
 
+/* Icon styling within todo items */
 .todo-item i {
   margin-left: 10px;
 }
 
+/* Paragraph styling within todo items */
 .todo-item p {
   flex-grow: 1;
+}
+.fa-solid {
+  color: rgba(255, 255, 255, 0.549);
+  transition: all 0.2s;
+}
+.fa-solid:hover {
+  color: white;
+}
+.fa-trash {
+  color: rgb(148, 0, 0);
+  transition: all 0.2s;
+}
+.fa-trash:hover {
+  color: red;
+}
+.todo-checkbox {
+  border-radius: 50px;
+}
+/* Card styling */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.card1 {
+  background-color: #101010;
+  height: 672px;
+  width: 280px;
+  border: 1px solid #333333;
+  gap: 1px;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.card2 {
+  background-color: #101010;
+  height: 672px;
+  min-width: 280px;
+  border: 1px solid #333333;
+  gap: 1px;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.card3 {
+  background-color: #101010;
+  height: 672px;
+  min-width: 280px;
+  border: 1px solid #333333;
+  gap: 1px;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.card4 {
+  background-color: #101010;
+  height: 672px;
+  width: 280px;
+  border: 1px solid #333333;
+  gap: 1px;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.dot1 {
+  width: 12px;
+  height: 12px;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+}
+.dot2 {
+  width: 12px;
+  height: 12px;
+  background-color: #a3a300;
+  border-radius: 50px;
+}
+.dot3 {
+  width: 12px;
+  height: 12px;
+  background-color: #00a300;
+  border-radius: 50px;
+}
+.dot4 {
+  width: 12px;
+  height: 12px;
+  background-color: #a30000;
+  border-radius: 50px;
+}
+#modal {
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background-color: rgb(0, 0, 0, 0.4);
+  z-index: 3;
+}
+.model-open {
+  display: block;
+}
+.modal-content {
+  background-color: #1e1e1e;
+  margin: 100px auto;
+  height: 376px;
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  padding: 12px;
+  color: white;
+  gap: 10px;
+}
+.modal-content input {
+  border: 1px solid #999999;
+  border-radius: 4px;
+  background-color: transparent;
+  width: 290px;
+  height: 44px;
+}
+.modal-content h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+.modal-content button {
+  margin-top: 75px;
+  font-size: 10px;
+  background-color: #00a300;
+  color: white;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  width: 290px;
+  font-weight: 600px;
+  font-size: 16px;
+  height: 44px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+}
+.modal-content select {
+  border: 1px solid #999999;
+  border-radius: 4px;
+  background-color: transparent;
+  width: 290px;
+  height: 44px;
 }
